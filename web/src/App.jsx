@@ -38,7 +38,7 @@ function App() {
         />
         <button onClick={() => analyzeFood(foodImage)}>Photo analyze</button>
         <button onClick={() => analyzeFoodDesc(foodInput)}>Desc analyze</button>
-        <button onClick={() => food(foodInput)}>OpenFood Facts</button>
+        <button onClick={() => food(foodInput)}>USDA</button>
       </div>
     </>
   );
