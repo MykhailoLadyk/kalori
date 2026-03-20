@@ -1,0 +1,1 @@
+// - props: coins, onPurchase, onClose

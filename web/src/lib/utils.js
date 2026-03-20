@@ -1,0 +1,5 @@
+  // - calcStreak(logs)
+  // - calcAvgCalories(logs)
+  // - calcDeficit(logs, goal)
+  // - formatDate(date)
+  // - groupMealsByType(meals)
