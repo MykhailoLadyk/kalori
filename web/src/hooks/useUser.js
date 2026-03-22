@@ -1,2 +1,5 @@
-  // - thin wrapper around UserContext
-  // - just re-exports useContext(UserContext)
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+export function useUser() {
+  return useContext(UserContext);
+}
