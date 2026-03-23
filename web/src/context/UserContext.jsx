@@ -15,9 +15,9 @@ export function UserProvider({ children }) {
         setLoading(true);
         const userData = await fetchUser();
         setUser(userData);
-      } catch (err) {
-        setError("Failed to fetch user");
-        console.error(err);
+      } catch (error) {
+        setError(error.message || "Failed to fetch user");
+        console.error("Failed to fetch user");
       } finally {
         setLoading(false);
       }
@@ -31,9 +31,9 @@ export function UserProvider({ children }) {
       setUpdating(true);
       const updatedUser = await updateUser(updates);
       setUser(updatedUser);
-    } catch (err) {
-      setError("Failed to update user");
-      console.error(err);
+    } catch (error) {
+      setError(error.message || "Failed to update user");
+      console.error("Failed to fetch user");
     } finally {
       setUpdating(false);
     }

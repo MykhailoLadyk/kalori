@@ -15,9 +15,9 @@ export function GameProvider({ children }) {
         setLoading(true);
         const data = await fetchGameData();
         setGameData(data);
-      } catch (err) {
-        setError(err.message ?? "Failed to fetch game data");
-        console.error(err);
+      } catch (error) {
+        setError("Failed to fetch game data");
+        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -30,9 +30,9 @@ export function GameProvider({ children }) {
       setUpdating(true);
       const updatedGameData = await updateGameData(updates);
       setGameData(updatedGameData);
-    } catch (err) {
-      setError(err.message ?? "Failed to update game data");
-      console.error(err);
+    } catch (error) {
+      setError(error.message || "Failed to update game data");
+      console.error(error);
     } finally {
       setUpdating(false);
     }
@@ -45,8 +45,9 @@ export function GameProvider({ children }) {
       const newLevel = 7; // Placeholder - replace with actual level calculation logic based on XP thresholds
       const result = await updateGameData({ xp_total: newXp, level: newLevel });
       setGameData(result);
-    } catch (err) {
-      setError(err.message);
+    } catch (error) {
+      setError(error.message || "Failed to award XP");
+      console.error(error);
     } finally {
       setUpdating(false);
     }

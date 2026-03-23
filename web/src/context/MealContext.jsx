@@ -25,7 +25,7 @@ export function MealProvider({ children }) {
         setMeals(meals);
       } catch (error) {
         console.error("Failed to fetch meals");
-        setError(error.message);
+        setError(error.message || "Failed to fetch meals");
       } finally {
         setLoading(false);
       }
@@ -42,7 +42,7 @@ export function MealProvider({ children }) {
       }
     } catch (error) {
       console.error("Failed to add meal");
-      setError(error.message);
+      setError(error.message || "Failed to add meal");
     } finally {
       setUpdating(false);
     }
@@ -57,7 +57,7 @@ export function MealProvider({ children }) {
       }
     } catch (error) {
       console.error("Failed to delete meal");
-      setError(error.message);
+      setError(error.message || "Failed to delete meal");
     } finally {
       setUpdating(false);
     }
@@ -72,7 +72,7 @@ export function MealProvider({ children }) {
       }
     } catch (error) {
       console.error("Failed to edit meal");
-      setError(error.message);
+      setError(error.message || "Failed to edit meal");
     } finally {
       setUpdating(false);
     }
@@ -84,7 +84,8 @@ export function MealProvider({ children }) {
       const data = await fetchMealsByRange(startDate, endDate);
       setRangeMeals(data);
     } catch (err) {
-      setError(err.message);
+      console.error("Failed to fetch meals by range");
+      setError(err.message || "Failed to fetch meals by range");
     } finally {
       setRangeLoading(false);
     }
